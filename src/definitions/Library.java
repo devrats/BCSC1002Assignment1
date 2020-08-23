@@ -30,5 +30,32 @@ public class Library {
         }
     }
 
+    /**
+     * Return details of books currently available in library.
+     *
+     * @return Details of books currently available in library.
+     */
+    public Book[] getBooksCurrentlyAvailableInLibrary() {
+        return booksCurrentlyAvailableInLibrary;
+    }
+
+    /**
+     * Sets the details of books currently available in library.
+     *
+     * @param booksCurrentlyAvailableInLibrary Details of books currently available in library.
+     */
+    public void setBooksCurrentlyAvailableInLibrary(Book[] booksCurrentlyAvailableInLibrary) {
+        this.booksCurrentlyAvailableInLibrary = booksCurrentlyAvailableInLibrary;
+    }
+
+    /**
+     * Return total number of books library can accumulate.
+     *
+     * @return Capacity of library
+     */
+    public int getCapacityOfLibrary() {
+        return CAPACITY_OF_LIBRARY;
+    }
+
 
 }
