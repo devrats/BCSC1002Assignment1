@@ -6,6 +6,8 @@
  * */
 package definitions;
 
+import java.util.Arrays;
+
 public class Student {
     private final int MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED = 6;
 
@@ -130,7 +132,21 @@ public class Student {
      *
      * @return Maximum number of books a student can issue at one time.
      */
-    public int getMAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED() {
+    public int getMaximumNumberOfBooksCanBeIssued() {
         return MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED;
     }
+
+    /**
+     * Return details of fields of Student.java class in formatted way.
+     *
+     * @return Formatted String
+     */
+    public String toString() {
+        return String.format(
+                "Student Name: %s, Student Roll no: %d, Total number of issued books: %d, Details of all books: %s",
+                getNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), Arrays.toString(allBooksIssuedByStudent)
+        );
+    }
+
+
 }
