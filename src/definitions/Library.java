@@ -7,6 +7,7 @@
 package definitions;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Library {
     private final int CAPACITY_OF_LIBRARY = 100;
@@ -71,5 +72,31 @@ public class Library {
         );
     }
 
+    /**
+     * Return true or false according to objects are equal or not.
+     *
+     * @param object Object to be matched.
+     * @return True or false according to objects are equal or not.
+     */
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Library library = (Library) object;
+        return Arrays.equals(this.getBooksCurrentlyAvailableInLibrary(), library.getBooksCurrentlyAvailableInLibrary());
+    }
 
+    /**
+     * Return hash code of all fields.
+     *
+     * @return Hash code of all fields.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(getBooksCurrentlyAvailableInLibrary(), getCapacityOfLibrary());
+    }
 }
