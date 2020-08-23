@@ -101,4 +101,16 @@ public class Book {
     public void setNameOfBook(String nameOfBook) {
         this.nameOfBook = nameOfBook;
     }
+
+    /**
+     * Return details of fields of Book.java class in formatted way.
+     *
+     * @return Formatted String
+     */
+    public String toString() {
+        return String.format(
+                "Book Name: %s, Book author name: %s, ISBN cod eof the book: %s",
+                getNameOfBook(), getAuthorOfBook(), getBookISBNCode()
+        );
+    }
 }
