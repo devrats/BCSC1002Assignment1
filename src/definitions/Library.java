@@ -6,6 +6,8 @@
  * */
 package definitions;
 
+import java.util.Arrays;
+
 public class Library {
     private final int CAPACITY_OF_LIBRARY = 100;
 
@@ -55,6 +57,18 @@ public class Library {
      */
     public int getCapacityOfLibrary() {
         return CAPACITY_OF_LIBRARY;
+    }
+
+    /**
+     * Return details of fields of Student.java class in formatted way.
+     *
+     * @return Formatted String
+     */
+    public String toString() {
+        return String.format(
+                "Details of all books currently present in library: %s",
+                Arrays.toString(booksCurrentlyAvailableInLibrary)
+        );
     }
 
 
