@@ -7,4 +7,7 @@
 package definitions;
 
 public class Library {
+    private final int CAPACITY_OF_LIBRARY = 100;
+
+
 }
