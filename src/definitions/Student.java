@@ -7,6 +7,7 @@
 package definitions;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Student {
     private final int MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED = 6;
@@ -148,5 +149,35 @@ public class Student {
         );
     }
 
+    /**
+     * Return true or false according to objects are equal or not.
+     *
+     * @param object Object to be matched.
+     * @return True or false according to objects are equal or not.
+     */
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Student student = (Student) object;
+        return this.getRollNumberOfStudent() == student.getRollNumberOfStudent() &&
+                this.getNumberOfBooksIssuedByStudent() == student.getNumberOfBooksIssuedByStudent() &&
+                Objects.equals(this.getNameOfStudent(), student.getNameOfStudent()) &&
+                Arrays.equals(this.getAllBooksIssuedByStudent(), student.getAllBooksIssuedByStudent());
+    }
+
+    /**
+     * Return hash code of all fields.
+     *
+     * @return Hash code of all fields.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), getAllBooksIssuedByStudent(), getMaximumNumberOfBooksCanBeIssued());
+    }
 
 }
