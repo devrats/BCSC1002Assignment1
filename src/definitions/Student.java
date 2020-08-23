@@ -7,6 +7,8 @@
 package definitions;
 
 public class Student {
+    private final int MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED = 6;
+
     private String nameOfStudent;
     private long rollNumberOfStudent;
     private int numberOfBooksIssuedByStudent;
