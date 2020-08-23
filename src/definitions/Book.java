@@ -8,18 +8,18 @@ package definitions;
 
 public class Book {
     private String nameOfBook;
-    private String authorOfTheBook;
+    private String authorOfBook;
     private String bookISBNCode;
 
     /**
      * Set the name of the book and name of the author of the book.
      *
-     * @param nameOfBook      Name of the Book.
-     * @param authorOfTheBook Name of the author of the respective book.
+     * @param nameOfBook   Name of the Book.
+     * @param authorOfBook Name of the author of the respective book.
      */
-    public Book(String nameOfBook, String authorOfTheBook) {
+    public Book(String nameOfBook, String authorOfBook) {
         this.nameOfBook = nameOfBook;
-        this.authorOfTheBook = authorOfTheBook;
+        this.authorOfBook = authorOfBook;
     }
 
     /**
@@ -40,24 +40,24 @@ public class Book {
      */
     public Book() {
         this.nameOfBook = "NOT AVAILABLE";
-        this.authorOfTheBook = "NOT AVAILABLE";
+        this.authorOfBook = "NOT AVAILABLE";
         this.bookISBNCode = "NOT AVAILABLE";
     }
 
     /**
      * @return Return the name of the author of the respective book.
      */
-    public String getAuthorOfTheBook() {
-        return authorOfTheBook;
+    public String getAuthorOfBook() {
+        return authorOfBook;
     }
 
     /**
      * Set the name of the author of the book.
      *
-     * @param authorOfTheBook Name of the author of the respective book.
+     * @param authorOfBook Name of the author of the respective book.
      */
-    public void setAuthorOfTheBook(String authorOfTheBook) {
-        this.authorOfTheBook = authorOfTheBook;
+    public void setAuthorOfBook(String authorOfBook) {
+        this.authorOfBook = authorOfBook;
     }
 
     /**
