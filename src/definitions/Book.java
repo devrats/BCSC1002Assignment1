@@ -6,6 +6,8 @@
  * */
 package definitions;
 
+import java.util.Objects;
+
 public class Book {
     private String nameOfBook;
     private String authorOfBook;
@@ -112,5 +114,35 @@ public class Book {
                 "Book Name: %s, Book author name: %s, ISBN cod eof the book: %s",
                 getNameOfBook(), getAuthorOfBook(), getBookISBNCode()
         );
+    }
+
+    /**
+     * Return true or false according to objects are equal or not.
+     *
+     * @param object Object to be matched.
+     * @return True or false according to objects are equal or not.
+     */
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        Book book = (Book) object;
+        return Objects.equals(this.getNameOfBook(), book.getNameOfBook()) &&
+                Objects.equals(this.getNameOfBook(), book.getNameOfBook()) &&
+                Objects.equals(this.getAuthorOfBook(), book.getAuthorOfBook());
+    }
+
+    /**
+     * Return hash code of all fields.
+     *
+     * @return Hash code of all fields.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNameOfBook(), getAuthorOfBook(), getBookISBNCode());
     }
 }
