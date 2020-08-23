@@ -11,5 +11,24 @@ public class Library {
 
     private Book[] booksCurrentlyAvailableInLibrary;
 
+    /**
+     * Sets the details of books currently available in library.
+     *
+     * @param booksCurrentlyAvailableInLibrary Details of books currently available in library.
+     */
+    public Library(Book[] booksCurrentlyAvailableInLibrary) {
+        this.booksCurrentlyAvailableInLibrary = booksCurrentlyAvailableInLibrary;
+    }
+
+    /**
+     * Initialise details of books with default values.
+     */
+    public Library() {
+        booksCurrentlyAvailableInLibrary = new Book[CAPACITY_OF_LIBRARY];
+        for (int index = 0; index < booksCurrentlyAvailableInLibrary.length; index++) {
+            booksCurrentlyAvailableInLibrary[index] = new Book();
+        }
+    }
+
 
 }
