@@ -23,7 +23,7 @@ public class Book {
     }
 
     /**
-     * Set the ISBN code of the book.
+     * Set the ISBN code of the respective book.
      *
      * @param bookISBNCode ISBN code of the book.
      */
@@ -42,5 +42,57 @@ public class Book {
         this.nameOfBook = "NOT AVAILABLE";
         this.authorOfTheBook = "NOT AVAILABLE";
         this.bookISBNCode = "NOT AVAILABLE";
+    }
+
+    /**
+     * @return Return the name of the author of the respective book.
+     */
+    public String getAuthorOfTheBook() {
+        return authorOfTheBook;
+    }
+
+    /**
+     * Set the name of the author of the book.
+     *
+     * @param authorOfTheBook Name of the author of the respective book.
+     */
+    public void setAuthorOfTheBook(String authorOfTheBook) {
+        this.authorOfTheBook = authorOfTheBook;
+    }
+
+    /**
+     * @return Return the name of the book.
+     */
+    public String getBookISBNCode() {
+        return bookISBNCode;
+    }
+
+    /**
+     * Set the ISBN code of the respective book.
+     *
+     * @param bookISBNCode ISBN code of the book.
+     */
+    public void setBookISBNCode(String bookISBNCode) {
+        if (bookISBNCode.length() == 13) {
+            this.bookISBNCode = bookISBNCode;
+        } else {
+            System.out.println("Please enter correct ISBN code");
+        }
+    }
+
+    /**
+     * @return Return the ISBN code of the respective book.
+     */
+    public String getNameOfBook() {
+        return nameOfBook;
+    }
+
+    /**
+     * Set the name of the book.
+     *
+     * @param nameOfBook Name of the book.
+     */
+    public void setNameOfBook(String nameOfBook) {
+        this.nameOfBook = nameOfBook;
     }
 }
