@@ -45,7 +45,9 @@ public class Book {
     }
 
     /**
-     * @return Return the name of the author of the respective book.
+     * Return the name of the author of the respective book.
+     *
+     * @return Name of the author of the respective book.
      */
     public String getAuthorOfBook() {
         return authorOfBook;
@@ -61,7 +63,9 @@ public class Book {
     }
 
     /**
-     * @return Return the name of the book.
+     * Return the name of the book.
+     *
+     * @return Name of the book.
      */
     public String getBookISBNCode() {
         return bookISBNCode;
@@ -81,7 +85,9 @@ public class Book {
     }
 
     /**
-     * @return Return the ISBN code of the respective book.
+     * Return the ISBN code of the respective book.
+     *
+     * @return ISBN code of the respective book.
      */
     public String getNameOfBook() {
         return nameOfBook;
