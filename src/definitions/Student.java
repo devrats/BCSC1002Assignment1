@@ -202,6 +202,7 @@ public class Student {
             if (numberOfBooksIssuedByStudent < MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED) {
                 if (book.getNameOfBook().equals("NOT AVAILABLE")) {
                     object.doIssue(nameOfBook, authorOfBook);
+                    book.doIssue();
                     book.addBookToLibrary(nameOfBook, authorOfBook);
                     break;
                 }
