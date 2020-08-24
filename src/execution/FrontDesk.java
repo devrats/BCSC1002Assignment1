@@ -53,6 +53,7 @@ public class FrontDesk {
                         library.removeBookFromLibrary(bookName, authorName);
                     }
                     case SHOW_ALL_BOOK -> library.listLibrary();
+                    case EXIT -> System.out.println("Successfully Exit");
                     default -> System.out.println("WRONG CHOICE");
                 }
             } while (clientInput != EXIT);
@@ -85,6 +86,7 @@ public class FrontDesk {
                         student.doReturn(bookName, authorName, library);
                     }
                     case SHOW_ALL_BOOK -> student.listBooksIssuedToStudent();
+                    case EXIT -> System.out.println("Successfully Exit");
                     default -> System.out.println("WRONG CHOICE");
                 }
             } while (clientInput != EXIT);
