@@ -78,13 +78,13 @@ public class FrontDesk {
                     }
                 } while (clientInput != EXIT);
             } else if (userIdentity == STUDENT) {
+                Student student = new Student();
+                System.out.println("Please enter your name: ");
+                input.nextLine();
+                student.setNameOfStudent(input.nextLine());
+                System.out.println("Please enter your university roll no: ");
+                student.setRollNumberOfStudent(input.nextLong());
                 do {
-                    Student student = new Student();
-                    System.out.println("Please enter your name: ");
-                    input.nextLine();
-                    student.setNameOfStudent(input.nextLine());
-                    System.out.println("Please enter your university roll no: ");
-                    student.setRollNumberOfStudent(input.nextLong());
                     System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
                     System.out.println("How may I help today?");
                     System.out.println("1. Issue a new book for me: ");
