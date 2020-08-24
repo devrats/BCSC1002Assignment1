@@ -202,7 +202,8 @@ public class Student {
             if (numberOfBooksIssuedByStudent < MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED) {
                 if (book.getNameOfBook().equals("NOT AVAILABLE")) {
                     object.doIssue(nameOfBook, authorOfBook);
-                    book = new Book(nameOfBook, authorOfBook);
+                    book.addBookToLibrary(nameOfBook, authorOfBook);
+                    break;
                 }
             } else {
                 System.out.println("you have already has 2 book issued so you can't issue more.");

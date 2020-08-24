@@ -113,6 +113,7 @@ public class Library {
                 book.addBookToLibrary(nameOfBook, authorOfBook);
                 numberOfBookPresentInLibrary++;
                 System.out.println("Thank you for adding, " + nameOfBook + ".");
+                break;
             }
         }
     }
