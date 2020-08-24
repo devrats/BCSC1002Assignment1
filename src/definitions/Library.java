@@ -178,4 +178,19 @@ public class Library {
             }
         }
     }
+
+    public void setBookISBNCode(String nameOfBook, String authorOfBook, String bookISBNCode) {
+        int numberOfBook = 0;
+        for (Book book : booksCurrentlyAvailableInLibrary) {
+            numberOfBook++;
+            if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook)) {
+                book.setBookISBNCode(bookISBNCode);
+                System.out.println("Thank you for issuing, " + nameOfBook + ".");
+                break;
+            }
+        }
+        if (numberOfBook == booksCurrentlyAvailableInLibrary.length) {
+            System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+        }
+    }
 }
