@@ -28,90 +28,96 @@ public class FrontDesk {
         Scanner input = new Scanner(System.in);
         int clientInput;
         Library library = new Library();
-        label:
         while (IS_LIBRARY_CONTINUES_WORK) {
             System.out.println("You are a: ");
             System.out.println("1. librarian: ");
             System.out.println("2. student: ");
+            System.out.println("0. Exit: ");
             int userIdentity = input.nextInt();
             if (userIdentity == LIBRARIAN) {
-                System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
-                System.out.println("How may I help today?");
-                System.out.println("1. Add a book: ");
-                System.out.println("2. Remove a book: ");
-                System.out.println("3. Show me all books: ");
-                System.out.println("4. Set ISBN code of a book: ");
-                System.out.println("0. Exit: ");
-                System.out.println("Enter your choice (0..3): ");
-                clientInput = input.nextInt();
-                switch (clientInput) {
-                    case ADD_BOOK -> {
-                        System.out.println("Enter the name of the Book you want to add: ");
-                        input.nextLine();
-                        String bookName = input.nextLine();
-                        System.out.println("Enter the author of the " + bookName);
-                        String authorName = input.nextLine();
-                        library.addBookToLibrary(bookName, authorName);
+                do {
+                    System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
+                    System.out.println("How may I help today?");
+                    System.out.println("1. Add a book: ");
+                    System.out.println("2. Remove a book: ");
+                    System.out.println("3. Show me all books: ");
+                    System.out.println("4. Set ISBN code of a book: ");
+                    System.out.println("0. Exit: ");
+                    System.out.println("Enter your choice (0..3): ");
+                    clientInput = input.nextInt();
+                    switch (clientInput) {
+                        case ADD_BOOK -> {
+                            System.out.println("Enter the name of the Book you want to add: ");
+                            input.nextLine();
+                            String bookName = input.nextLine();
+                            System.out.println("Enter the author of the " + bookName);
+                            String authorName = input.nextLine();
+                            library.addBookToLibrary(bookName, authorName);
+                        }
+                        case REMOVE_BOOK -> {
+                            System.out.println("Enter the name of the Book you want to remove: ");
+                            input.nextLine();
+                            String bookName = input.nextLine();
+                            System.out.println("Enter the author of the " + bookName);
+                            String authorName = input.nextLine();
+                            library.removeBookFromLibrary(bookName, authorName);
+                        }
+                        case SET_ISBN -> {
+                            System.out.println("Enter the name of the Book you want to set ISBN: ");
+                            input.nextLine();
+                            String bookName = input.nextLine();
+                            System.out.println("Enter the author of the " + bookName);
+                            String authorName = input.nextLine();
+                            System.out.println("Enter ISBN code of the " + bookName);
+                            String bookISBNCode = input.nextLine();
+                            library.setBookISBNCode(bookName, authorName, bookISBNCode);
+                        }
+                        case SHOW_ALL_BOOK -> library.listLibrary();
+                        case EXIT -> System.out.println("Successfully Exit");
+                        default -> System.out.println("WRONG CHOICE");
                     }
-                    case REMOVE_BOOK -> {
-                        System.out.println("Enter the name of the Book you want to remove: ");
-                        input.nextLine();
-                        String bookName = input.nextLine();
-                        System.out.println("Enter the author of the " + bookName);
-                        String authorName = input.nextLine();
-                        library.removeBookFromLibrary(bookName, authorName);
-                    }
-                    case SET_ISBN -> {
-                        System.out.println("Enter the name of the Book you want to set ISBN: ");
-                        input.nextLine();
-                        String bookName = input.nextLine();
-                        System.out.println("Enter the author of the " + bookName);
-                        String authorName = input.nextLine();
-                        System.out.println("Enter ISBN code of the " + bookName);
-                        String bookISBNCode = input.nextLine();
-                        library.setBookISBNCode(bookName, authorName, bookISBNCode);
-                    }
-                    case SHOW_ALL_BOOK -> library.listLibrary();
-                    case EXIT -> {
-                        System.out.println("Successfully Exit");
-                        break label;
-                    }
-                    default -> System.out.println("WRONG CHOICE");
-                }
+                } while (clientInput != EXIT);
             } else if (userIdentity == STUDENT) {
-                Student student = new Student();
-                System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
-                System.out.println("How may I help today?");
-                System.out.println("1. Issue a new book for me: ");
-                System.out.println("2. Return a previously issued book for me: ");
-                System.out.println("3. Show me all my issued books: ");
-                System.out.println("0. Exit: ");
-                System.out.println("Enter your choice (0..3): ");
-                clientInput = input.nextInt();
-                switch (clientInput) {
-                    case ISSUE_BOOK -> {
-                        System.out.println("Enter the name of the Book you want to issue: ");
-                        input.nextLine();
-                        String bookName = input.nextLine();
-                        System.out.println("Enter the author of the " + bookName);
-                        String authorName = input.nextLine();
-                        student.doIssue(bookName, authorName, library);
+                do {
+                    Student student = new Student();
+                    System.out.println("Please enter your name: ");
+                    input.nextLine();
+                    student.setNameOfStudent(input.nextLine());
+                    System.out.println("Please enter your university roll no: ");
+                    student.setRollNumberOfStudent(input.nextLong());
+                    System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
+                    System.out.println("How may I help today?");
+                    System.out.println("1. Issue a new book for me: ");
+                    System.out.println("2. Return a previously issued book for me: ");
+                    System.out.println("3. Show me all my issued books: ");
+                    System.out.println("0. Exit: ");
+                    System.out.println("Enter your choice (0..3): ");
+                    clientInput = input.nextInt();
+                    switch (clientInput) {
+                        case ISSUE_BOOK -> {
+                            System.out.println("Enter the name of the Book you want to issue: ");
+                            input.nextLine();
+                            String bookName = input.nextLine();
+                            System.out.println("Enter the author of the " + bookName);
+                            String authorName = input.nextLine();
+                            student.doIssue(bookName, authorName, library);
+                        }
+                        case RETURN_BOOK -> {
+                            System.out.println("Enter the name of the Book you want to return: ");
+                            input.nextLine();
+                            String bookName = input.nextLine();
+                            System.out.println("Enter the author of the " + bookName);
+                            String authorName = input.nextLine();
+                            student.doReturn(bookName, authorName, library);
+                        }
+                        case SHOW_ALL_BOOK -> student.listBooksIssuedToStudent();
+                        case EXIT -> System.out.println("Successfully Exit");
+                        default -> System.out.println("WRONG CHOICE");
                     }
-                    case RETURN_BOOK -> {
-                        System.out.println("Enter the name of the Book you want to return: ");
-                        input.nextLine();
-                        String bookName = input.nextLine();
-                        System.out.println("Enter the author of the " + bookName);
-                        String authorName = input.nextLine();
-                        student.doReturn(bookName, authorName, library);
-                    }
-                    case SHOW_ALL_BOOK -> student.listBooksIssuedToStudent();
-                    case EXIT -> {
-                        System.out.println("Successfully Exit");
-                        break label;
-                    }
-                    default -> System.out.println("WRONG CHOICE");
-                }
+                } while (clientInput != EXIT);
+            } else if (userIdentity == EXIT) {
+                System.out.println("successfully Exit");
+                break;
             } else {
                 System.out.println("WRONG INPUT");
             }
