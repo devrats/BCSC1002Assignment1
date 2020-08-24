@@ -218,9 +218,10 @@ public class Student {
         int numberOfBook = 0;
         for (Book book : allBooksIssuedByStudent) {
             numberOfBook++;
-            if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook) && book.isBookAvailable()) {
+            if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook) && !book.isBookAvailable()) {
                 book.doReturn();
                 object.doReturn(nameOfBook, authorOfBook);
+                book = new Book();
                 System.out.println("Thank you for Returning, " + nameOfBook + ".");
                 break;
             }
