@@ -13,6 +13,7 @@ public class Library {
     private final int CAPACITY_OF_LIBRARY = 100;
 
     private Book[] booksCurrentlyAvailableInLibrary;
+    private static int numberOfBookPresentInLibrary = 0;
 
     /**
      * Sets the details of books currently available in library.
@@ -99,4 +100,18 @@ public class Library {
     public int hashCode() {
         return Objects.hash(getBooksCurrentlyAvailableInLibrary(), getCapacityOfLibrary());
     }
+
+    /**
+     * Add a book to the library.
+     *
+     * @param nameOfBook   Name of the Book.
+     * @param authorOfBook Name of the author of the respective book.
+     */
+    public void addBookToLibrary(String nameOfBook, String authorOfBook) {
+        booksCurrentlyAvailableInLibrary[numberOfBookPresentInLibrary].addBooktoLibrary(nameOfBook, authorOfBook);
+        numberOfBookPresentInLibrary++;
+        System.out.println("Thank you for adding, " + nameOfBook + ".");
+    }
+
+
 }
