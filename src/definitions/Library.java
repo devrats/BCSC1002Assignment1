@@ -144,7 +144,7 @@ public class Library {
     }
 
     /**
-     * issue a book from the library.
+     * Issue a book from the library.
      *
      * @param nameOfBook   Name of the Book.
      * @param authorOfBook Name of the author of the respective book.
@@ -161,6 +161,22 @@ public class Library {
         }
         if (numberOfBook == booksCurrentlyAvailableInLibrary.length) {
             System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+        }
+    }
+
+    /**
+     * Return a book from the library.
+     *
+     * @param nameOfBook   Name of the Book.
+     * @param authorOfBook Name of the author of the respective book.
+     */
+    public void doReturn(String nameOfBook, String authorOfBook) {
+        for (Book book : booksCurrentlyAvailableInLibrary) {
+            if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook) && !book.isBookAvailable()) {
+                book.doReturn();
+                System.out.println("Thank you for issuing, " + nameOfBook + ".");
+                break;
+            }
         }
     }
 }
