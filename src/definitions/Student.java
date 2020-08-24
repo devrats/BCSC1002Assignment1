@@ -227,4 +227,13 @@ public class Student {
             System.out.println("SORRY NO SUCH BOOK AVAILABLE");
         }
     }
+
+    /**
+     * This method shows a list of all the books issued to student.
+     */
+    public void listBooksIssuedToStudent() {
+        for (Book book : allBooksIssuedByStudent) {
+            System.out.println(book);
+        }
+    }
 }
