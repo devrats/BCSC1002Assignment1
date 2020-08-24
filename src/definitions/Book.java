@@ -9,19 +9,24 @@ package definitions;
 import java.util.Objects;
 
 public class Book {
+    private final boolean defaultBookAvailiblity = false;
+
     private String nameOfBook;
     private String authorOfBook;
     private String bookISBNCode;
+    private boolean isBookAvailable;
 
     /**
      * Set the name of the book and name of the author of the book.
      *
-     * @param nameOfBook   Name of the Book.
-     * @param authorOfBook Name of the author of the respective book.
+     * @param nameOfBook      Name of the Book.
+     * @param authorOfBook    Name of the author of the respective book.
+     * @param isBookAvailable Availiblity of book.
      */
-    public Book(String nameOfBook, String authorOfBook) {
+    public Book(String nameOfBook, String authorOfBook, boolean isBookAvailable) {
         this.nameOfBook = nameOfBook;
         this.authorOfBook = authorOfBook;
+        this.isBookAvailable = isBookAvailable;
     }
 
     /**
@@ -44,6 +49,7 @@ public class Book {
         this.nameOfBook = "NOT AVAILABLE";
         this.authorOfBook = "NOT AVAILABLE";
         this.bookISBNCode = "NOT AVAILABLE";
+        this.isBookAvailable = defaultBookAvailiblity;
     }
 
     /**
@@ -105,14 +111,41 @@ public class Book {
     }
 
     /**
+     * Return the availability of the book.
+     *
+     * @return Availability of book in the library.
+     */
+    public boolean isBookAvailable() {
+        return isBookAvailable;
+    }
+
+    /**
+     * Set the availability of the book.
+     *
+     * @param bookAvailable Availability of book in the library.
+     */
+    public void setBookAvailable(boolean bookAvailable) {
+        isBookAvailable = bookAvailable;
+    }
+
+    /**
+     * Return Default the availability of the book.
+     *
+     * @return Default availability of book in the library.
+     */
+    public boolean isDefaultBookAvailability() {
+        return defaultBookAvailiblity;
+    }
+
+    /**
      * Return details of fields of Book.java class in formatted way.
      *
      * @return Formatted String
      */
     public String toString() {
         return String.format(
-                "Book Name: %s, Book author name: %s, ISBN cod eof the book: %s",
-                getNameOfBook(), getAuthorOfBook(), getBookISBNCode()
+                "Book Name: %s, Book author name: %s, ISBN cod eof the book: %s, Book availability: %b",
+                getNameOfBook(), getAuthorOfBook(), getBookISBNCode(), isBookAvailable()
         );
     }
 
@@ -133,7 +166,8 @@ public class Book {
         Book book = (Book) object;
         return Objects.equals(this.getNameOfBook(), book.getNameOfBook()) &&
                 Objects.equals(this.getNameOfBook(), book.getNameOfBook()) &&
-                Objects.equals(this.getAuthorOfBook(), book.getAuthorOfBook());
+                Objects.equals(this.getAuthorOfBook(), book.getAuthorOfBook()) &&
+                this.isBookAvailable() == book.isBookAvailable();
     }
 
     /**
@@ -143,6 +177,6 @@ public class Book {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(getNameOfBook(), getAuthorOfBook(), getBookISBNCode());
+        return Objects.hash(getNameOfBook(), getAuthorOfBook(), getBookISBNCode(), isBookAvailable(), isDefaultBookAvailability());
     }
 }
