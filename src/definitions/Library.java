@@ -179,6 +179,11 @@ public class Library {
         }
     }
 
+    /**
+     * @param nameOfBook   Name of the book.
+     * @param authorOfBook Author of the respective book.
+     * @param bookISBNCode ISBN cod eof the respective book.
+     */
     public void setBookISBNCode(String nameOfBook, String authorOfBook, String bookISBNCode) {
         int numberOfBook = 0;
         for (Book book : booksCurrentlyAvailableInLibrary) {
