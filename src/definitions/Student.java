@@ -204,12 +204,12 @@ public class Student {
                     object.doIssue(nameOfBook, authorOfBook);
                     book.doIssue();
                     book.addBookToLibrary(nameOfBook, authorOfBook);
+                    numberOfBooksIssuedByStudent++;
                     break;
                 }
             } else {
                 System.out.println("you have already has 2 book issued so you can't issue more.");
             }
-            numberOfBooksIssuedByStudent++;
         }
     }
 
@@ -221,20 +221,21 @@ public class Student {
      * @param object       Object of library.
      */
     public void doReturn(String nameOfBook, String authorOfBook, Library object) {
-        int numberOfBook = 0;
+        boolean isreturnDone = false;
         for (Book book : allBooksIssuedByStudent) {
-            numberOfBook++;
             if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook) && !book.isBookAvailable()) {
                 book.doReturn();
                 object.doReturn(nameOfBook, authorOfBook);
                 book.removeBookFromLibrary();
                 numberOfBooksIssuedByStudent--;
-                System.out.println("Thank you for Returning, " + nameOfBook + ".");
+                isreturnDone = true;
                 break;
             }
         }
-        if (numberOfBook == allBooksIssuedByStudent.length) {
+        if (!isreturnDone) {
             System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+        } else if (isreturnDone) {
+            System.out.println("Thank you for Returning, " + nameOfBook + ".");
         }
     }
 

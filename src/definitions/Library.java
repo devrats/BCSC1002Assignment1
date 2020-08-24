@@ -125,17 +125,18 @@ public class Library {
      * @param authorOfBook Name of the author of the respective book.
      */
     public void removeBookFromLibrary(String nameOfBook, String authorOfBook) {
-        int numberOfBook = 0;
+        boolean isBookRemoved = false;
         for (Book book : booksCurrentlyAvailableInLibrary) {
-            numberOfBook++;
             if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook)) {
                 book.removeBookFromLibrary();
-                System.out.println("Thank you for removing, " + nameOfBook + ".");
+                isBookRemoved = true;
                 break;
             }
         }
-        if (numberOfBook == booksCurrentlyAvailableInLibrary.length) {
+        if (!isBookRemoved) {
             System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+        } else if (isBookRemoved) {
+            System.out.println("Thank you for removing, " + nameOfBook + ".");
         }
     }
 
@@ -155,17 +156,18 @@ public class Library {
      * @param authorOfBook Name of the author of the respective book.
      */
     public void doIssue(String nameOfBook, String authorOfBook) {
-        int numberOfBook = 0;
+        boolean isIssueDone = false;
         for (Book book : booksCurrentlyAvailableInLibrary) {
-            numberOfBook++;
             if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook) && book.isBookAvailable()) {
                 book.doIssue();
-                System.out.println("Thank you for issuing, " + nameOfBook + ".");
+                isIssueDone = true;
                 break;
             }
         }
-        if (numberOfBook == booksCurrentlyAvailableInLibrary.length) {
+        if (!isIssueDone) {
             System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+        } else if (isIssueDone) {
+            System.out.println("Thank you for issuing, " + nameOfBook + ".");
         }
     }
 
@@ -192,18 +194,20 @@ public class Library {
      * @param bookISBNCode ISBN cod eof the respective book.
      */
     public void setBookISBNCode(String nameOfBook, String authorOfBook, String bookISBNCode) {
-        int numberOfBook = 0;
+        boolean isISBNSet = false;
         for (Book book : booksCurrentlyAvailableInLibrary) {
-            numberOfBook++;
             if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook)) {
                 book.setBookISBNCode(bookISBNCode);
+                isISBNSet = true;
                 if (!book.getBookISBNCode().equals("NOT AVAILABLE")) {
                     System.out.println("Thank you for setting ISBN code of, " + nameOfBook + ".");
                 }
                 break;
             }
-            if (numberOfBook == booksCurrentlyAvailableInLibrary.length) {
+            if (!isISBNSet) {
                 System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+            } else if (isISBNSet) {
+                System.out.println("Thank you for setting ISBN code of, " + nameOfBook + ".");
             }
         }
     }
