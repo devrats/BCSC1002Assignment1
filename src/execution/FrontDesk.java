@@ -19,19 +19,23 @@ public class FrontDesk {
     private static final int EXIT = 0;
     private static final int ADD_BOOK = 1;
     private static final int REMOVE_BOOK = 2;
+    private static final int SET_ISBN = 4;
+    private static final boolean IS_LIBRARY_CONTINUES_WORK = true;
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int clientInput;
         Library library = new Library();
-        System.out.println("You are a librarian or a student: ");
-        if (input.nextLine().equalsIgnoreCase("librarian")) {
-            do {
+        label:
+        while (IS_LIBRARY_CONTINUES_WORK) {
+            System.out.println("You are a librarian or a student: ");
+            if (input.nextLine().equalsIgnoreCase("librarian")) {
                 System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
                 System.out.println("How may I help today?");
                 System.out.println("1. Add a book: ");
                 System.out.println("2. Remove a book: ");
                 System.out.println("3. Show me all books: ");
+                System.out.println("4. Set ISBN code of a book: ");
                 System.out.println("0. Exit: ");
                 System.out.println("Enter your choice (0..3): ");
                 clientInput = input.nextInt();
@@ -52,14 +56,25 @@ public class FrontDesk {
                         String authorName = input.nextLine();
                         library.removeBookFromLibrary(bookName, authorName);
                     }
+                    case SET_ISBN -> {
+                        System.out.println("Enter the name of the Book you want to set ISBN: ");
+                        input.nextLine();
+                        String bookName = input.nextLine();
+                        System.out.println("Enter the author of the " + bookName);
+                        String authorName = input.nextLine();
+                        input.nextLine();
+                        String bookISBNCode = input.nextLine();
+                        library.setBookISBNCode(bookName, authorName, bookISBNCode);
+                    }
                     case SHOW_ALL_BOOK -> library.listLibrary();
-                    case EXIT -> System.out.println("Successfully Exit");
+                    case EXIT -> {
+                        System.out.println("Successfully Exit");
+                        break label;
+                    }
                     default -> System.out.println("WRONG CHOICE");
                 }
-            } while (clientInput != EXIT);
-        } else if (input.nextLine().equalsIgnoreCase("student")) {
-            Student student = new Student();
-            do {
+            } else if (input.nextLine().equalsIgnoreCase("student")) {
+                Student student = new Student();
                 System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
                 System.out.println("How may I help today?");
                 System.out.println("1. Issue a new book for me: ");
@@ -86,12 +101,15 @@ public class FrontDesk {
                         student.doReturn(bookName, authorName, library);
                     }
                     case SHOW_ALL_BOOK -> student.listBooksIssuedToStudent();
-                    case EXIT -> System.out.println("Successfully Exit");
+                    case EXIT -> {
+                        System.out.println("Successfully Exit");
+                        break label;
+                    }
                     default -> System.out.println("WRONG CHOICE");
                 }
-            } while (clientInput != EXIT);
-        } else {
-            System.out.println("WRONG INPUT");
+            } else {
+                System.out.println("WRONG INPUT");
+            }
         }
     }
 
