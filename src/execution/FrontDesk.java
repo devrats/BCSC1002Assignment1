@@ -29,7 +29,7 @@ public class FrontDesk {
         int clientInput;
         Library library = new Library();
         while (IS_LIBRARY_CONTINUES_WORK) {
-            System.out.println("You are a ");
+            System.out.println("You are a: ");
             System.out.println("1. librarian: ");
             System.out.println("2. student: ");
             System.out.println("0. Exit: ");
