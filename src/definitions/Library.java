@@ -1,6 +1,6 @@
 /*  Created by IntelliJ IDEA.
- *  User: Divyansh Bhardwaj (dbc2201)
- *  Date: 21/08/20
+ *  User: Devvrat Sharma
+ *  Date: 23/08/20
  *  Time: 3:50 PM
  *  File Name : Library.java
  * */
@@ -180,6 +180,8 @@ public class Library {
     }
 
     /**
+     * Set ISBN code of the book.
+     *
      * @param nameOfBook   Name of the book.
      * @param authorOfBook Author of the respective book.
      * @param bookISBNCode ISBN cod eof the respective book.
