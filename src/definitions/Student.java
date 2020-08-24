@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Student {
-    private final int MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED = 6;
+    private final int MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED = 2;
 
     private static int initialNumberOfBookIssued = 0;
     private String nameOfStudent;
@@ -190,5 +190,17 @@ public class Student {
         return Objects.hash(getNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), getAllBooksIssuedByStudent(), getMaximumNumberOfBooksCanBeIssued());
     }
 
-
+    /**
+     * Issue a book from the library.
+     *
+     * @param nameOfBook   Name of the Book.
+     * @param authorOfBook Name of the author of the respective book.
+     */
+    public void doIssue(String nameOfBook, String authorOfBook, Library object) {
+        if (numberOfBooksIssuedByStudent < MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED) {
+            object.doIssue(nameOfBook, authorOfBook);
+            allBooksIssuedByStudent[numberOfBooksIssuedByStudent] = new Book(nameOfBook, authorOfBook);
+        }
+        numberOfBooksIssuedByStudent++;
+    }
 }
