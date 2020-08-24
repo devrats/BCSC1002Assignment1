@@ -12,6 +12,7 @@ import java.util.Objects;
 public class Student {
     private final int MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED = 6;
 
+    private static int initialNumberOfBookIssued = 0;
     private String nameOfStudent;
     private long rollNumberOfStudent;
     private int numberOfBooksIssuedByStudent;
@@ -138,6 +139,15 @@ public class Student {
     }
 
     /**
+     * Return initial number of books issued in the name of student.
+     *
+     * @return Initial number of books issued in the name of student.
+     */
+    public static int getInitialNumberOfBookIssued() {
+        return initialNumberOfBookIssued;
+    }
+
+    /**
      * Return details of fields of Student.java class in formatted way.
      *
      * @return Formatted String
@@ -179,5 +189,6 @@ public class Student {
     public int hashCode() {
         return Objects.hash(getNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), getAllBooksIssuedByStudent(), getMaximumNumberOfBooksCanBeIssued());
     }
+
 
 }
