@@ -25,6 +25,38 @@ public class FrontDesk {
         int clientInput;
         Library library = new Library();
         System.out.println("You are a librarian or a student: ");
+        if (input.nextLine().equalsIgnoreCase("librarian")) {
+            do {
+                System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
+                System.out.println("How may I help today?");
+                System.out.println("1. Add a book: ");
+                System.out.println("2. Remove a book: ");
+                System.out.println("3. Show me all books: ");
+                System.out.println("0. Exit: ");
+                System.out.println("Enter your choice (0..3): ");
+                clientInput = input.nextInt();
+                switch (clientInput) {
+                    case ADD_BOOK -> {
+                        System.out.println("Enter the name of the Book you want to add: ");
+                        input.nextLine();
+                        String bookName = input.nextLine();
+                        System.out.println("Enter the author of the " + bookName);
+                        String authorName = input.nextLine();
+                        library.addBookToLibrary(bookName, authorName);
+                    }
+                    case REMOVE_BOOK -> {
+                        System.out.println("Enter the name of the Book you want to remove: ");
+                        input.nextLine();
+                        String bookName = input.nextLine();
+                        System.out.println("Enter the author of the " + bookName);
+                        String authorName = input.nextLine();
+                        library.removeBookFromLibrary(bookName, authorName);
+                    }
+                    case SHOW_ALL_BOOK -> library.listLibrary();
+                    default -> System.out.println("WRONG CHOICE");
+                }
+            } while (clientInput != EXIT);
+        }
         if (input.nextLine().equalsIgnoreCase("student")) {
             Student student = new Student();
             do {
