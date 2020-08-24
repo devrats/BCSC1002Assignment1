@@ -56,8 +56,7 @@ public class FrontDesk {
                     default -> System.out.println("WRONG CHOICE");
                 }
             } while (clientInput != EXIT);
-        }
-        if (input.nextLine().equalsIgnoreCase("student")) {
+        } else if (input.nextLine().equalsIgnoreCase("student")) {
             Student student = new Student();
             do {
                 System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
@@ -89,6 +88,8 @@ public class FrontDesk {
                     default -> System.out.println("WRONG CHOICE");
                 }
             } while (clientInput != EXIT);
+        } else {
+            System.out.println("WRONG INPUT");
         }
     }
 
