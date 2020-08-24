@@ -192,12 +192,14 @@ public class Library {
             numberOfBook++;
             if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook)) {
                 book.setBookISBNCode(bookISBNCode);
-                System.out.println("Thank you for issuing, " + nameOfBook + ".");
+                if (!book.getBookISBNCode().equals("NOT AVAILABLE")) {
+                    System.out.println("Thank you for setting ISBN code of, " + nameOfBook + ".");
+                }
                 break;
             }
-        }
-        if (numberOfBook == booksCurrentlyAvailableInLibrary.length) {
-            System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+            if (numberOfBook == booksCurrentlyAvailableInLibrary.length) {
+                System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+            }
         }
     }
 }

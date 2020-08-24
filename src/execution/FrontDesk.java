@@ -20,6 +20,8 @@ public class FrontDesk {
     private static final int ADD_BOOK = 1;
     private static final int REMOVE_BOOK = 2;
     private static final int SET_ISBN = 4;
+    private static final int LIBRARIAN = 1;
+    private static final int STUDENT = 2;
     private static final boolean IS_LIBRARY_CONTINUES_WORK = true;
 
     public static void main(String[] args) {
@@ -28,8 +30,11 @@ public class FrontDesk {
         Library library = new Library();
         label:
         while (IS_LIBRARY_CONTINUES_WORK) {
-            System.out.println("You are a librarian or a student: ");
-            if (input.nextLine().equalsIgnoreCase("librarian")) {
+            System.out.println("You are a: ");
+            System.out.println("1. librarian: ");
+            System.out.println("2. student: ");
+            int userIdentity = input.nextInt();
+            if (userIdentity == LIBRARIAN) {
                 System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
                 System.out.println("How may I help today?");
                 System.out.println("1. Add a book: ");
@@ -62,7 +67,7 @@ public class FrontDesk {
                         String bookName = input.nextLine();
                         System.out.println("Enter the author of the " + bookName);
                         String authorName = input.nextLine();
-                        input.nextLine();
+                        System.out.println("Enter ISBN code of the " + bookName);
                         String bookISBNCode = input.nextLine();
                         library.setBookISBNCode(bookName, authorName, bookISBNCode);
                     }
@@ -73,7 +78,7 @@ public class FrontDesk {
                     }
                     default -> System.out.println("WRONG CHOICE");
                 }
-            } else if (input.nextLine().equalsIgnoreCase("student")) {
+            } else if (userIdentity == STUDENT) {
                 Student student = new Student();
                 System.out.println("-=-=-=-=Welcome To Front End Desk=-=-=-=-");
                 System.out.println("How may I help today?");

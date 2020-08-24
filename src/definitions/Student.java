@@ -201,6 +201,8 @@ public class Student {
         if (numberOfBooksIssuedByStudent < MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED) {
             object.doIssue(nameOfBook, authorOfBook);
             allBooksIssuedByStudent[numberOfBooksIssuedByStudent] = new Book(nameOfBook, authorOfBook);
+        } else {
+            System.out.println("you have already has 2 book issued so you can't issue more.");
         }
         numberOfBooksIssuedByStudent++;
     }

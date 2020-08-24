@@ -142,7 +142,7 @@ public class Book {
      */
     public String toString() {
         return String.format(
-                "Book Name: %s, Book author name: %s, ISBN cod eof the book: %s, Book availability: %b",
+                "Book Name: %s, Book author name: %s, ISBN code of the book: %s, Book availability: %b",
                 getNameOfBook(), getAuthorOfBook(), getBookISBNCode(), isBookAvailable()
         );
     }
