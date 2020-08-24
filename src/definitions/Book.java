@@ -16,22 +16,11 @@ public class Book {
     private String bookISBNCode;
     private boolean isBookAvailable;
 
-    /**
-     * Set the name of the book and name of the author of the book.
-     *
-     * @param nameOfBook   Name of the Book.
-     * @param authorOfBook Name of the author of the respective book.
-     */
     public Book(String nameOfBook, String authorOfBook) {
         this.nameOfBook = nameOfBook;
         this.authorOfBook = authorOfBook;
     }
 
-    /**
-     * Set the ISBN code of the respective book.
-     *
-     * @param bookISBNCode ISBN code of the book.
-     */
     public Book(String bookISBNCode) {
         if (bookISBNCode.length() == 13) {
             this.bookISBNCode = bookISBNCode;
@@ -40,9 +29,6 @@ public class Book {
         }
     }
 
-    /**
-     * Initialise all fields with default value.
-     */
     public Book() {
         this.nameOfBook = "NOT AVAILABLE";
         this.authorOfBook = "NOT AVAILABLE";
@@ -50,38 +36,18 @@ public class Book {
         this.isBookAvailable = defaultBookAvailability;
     }
 
-    /**
-     * Return the name of the author of the respective book.
-     *
-     * @return Name of the author of the respective book.
-     */
     public String getAuthorOfBook() {
         return authorOfBook;
     }
 
-    /**
-     * Set the name of the author of the book.
-     *
-     * @param authorOfBook Name of the author of the respective book.
-     */
     public void setAuthorOfBook(String authorOfBook) {
         this.authorOfBook = authorOfBook;
     }
 
-    /**
-     * Return the name of the book.
-     *
-     * @return Name of the book.
-     */
     public String getBookISBNCode() {
         return bookISBNCode;
     }
 
-    /**
-     * Set the ISBN code of the respective book.
-     *
-     * @param bookISBNCode ISBN code of the book.
-     */
     public void setBookISBNCode(String bookISBNCode) {
         if (bookISBNCode.length() == 13) {
             this.bookISBNCode = bookISBNCode;
@@ -90,56 +56,26 @@ public class Book {
         }
     }
 
-    /**
-     * Return the ISBN code of the respective book.
-     *
-     * @return ISBN code of the respective book.
-     */
     public String getNameOfBook() {
         return nameOfBook;
     }
 
-    /**
-     * Set the name of the book.
-     *
-     * @param nameOfBook Name of the book.
-     */
     public void setNameOfBook(String nameOfBook) {
         this.nameOfBook = nameOfBook;
     }
 
-    /**
-     * Return the availability of the book.
-     *
-     * @return Availability of book in the library.
-     */
     public boolean isBookAvailable() {
         return isBookAvailable;
     }
 
-    /**
-     * Set the availability of the book.
-     *
-     * @param bookAvailable Availability of book in the library.
-     */
     public void setBookAvailable(boolean bookAvailable) {
         isBookAvailable = bookAvailable;
     }
 
-    /**
-     * Return Default the availability of the book.
-     *
-     * @return Default availability of book in the library.
-     */
     public boolean isDefaultBookAvailability() {
         return defaultBookAvailability;
     }
 
-    /**
-     * Return details of fields of Book.java class in formatted way.
-     *
-     * @return Formatted String
-     */
     public String toString() {
         return String.format(
                 "Book Name: %s, Book author name: %s, ISBN code of the book: %s, Book availability: %b",
@@ -147,12 +83,6 @@ public class Book {
         );
     }
 
-    /**
-     * Return true or false according to objects are equal or not.
-     *
-     * @param object Object to be matched.
-     * @return True or false according to objects are equal or not.
-     */
     @Override
     public boolean equals(Object object) {
         if (this == object) {
@@ -168,11 +98,6 @@ public class Book {
                 this.isBookAvailable() == book.isBookAvailable();
     }
 
-    /**
-     * Return hash code of all fields.
-     *
-     * @return Hash code of all fields.
-     */
     @Override
     public int hashCode() {
         return Objects.hash(getNameOfBook(), getAuthorOfBook(), getBookISBNCode(), isBookAvailable(), isDefaultBookAvailability());
