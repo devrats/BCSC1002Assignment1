@@ -133,4 +133,13 @@ public class Library {
             System.out.println("SORRY NO SUCH BOOK AVAILABLE");
         }
     }
+
+    /**
+     * This method shows a list of all the books in our library.
+     */
+    public void listLibrary() {
+        for (Book book : booksCurrentlyAvailableInLibrary) {
+            System.out.println(book);
+        }
+    }
 }
