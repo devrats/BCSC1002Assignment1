@@ -19,14 +19,12 @@ public class Book {
     /**
      * Set the name of the book and name of the author of the book.
      *
-     * @param nameOfBook      Name of the Book.
-     * @param authorOfBook    Name of the author of the respective book.
-     * @param isBookAvailable Availiblity of book.
+     * @param nameOfBook   Name of the Book.
+     * @param authorOfBook Name of the author of the respective book.
      */
-    public Book(String nameOfBook, String authorOfBook, boolean isBookAvailable) {
+    public Book(String nameOfBook, String authorOfBook) {
         this.nameOfBook = nameOfBook;
         this.authorOfBook = authorOfBook;
-        this.isBookAvailable = isBookAvailable;
     }
 
     /**
