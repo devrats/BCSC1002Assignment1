@@ -113,5 +113,24 @@ public class Library {
         System.out.println("Thank you for adding, " + nameOfBook + ".");
     }
 
-
+    /**
+     * Remove a book from the library.
+     *
+     * @param nameOfBook   Name of the Book.
+     * @param authorOfBook Name of the author of the respective book.
+     */
+    public void removeBookFromLibrary(String nameOfBook, String authorOfBook) {
+        int numberOfBook = 0;
+        for (Book book : booksCurrentlyAvailableInLibrary) {
+            numberOfBook++;
+            if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook)) {
+                book.removeBookFromLibrary();
+                System.out.println("Thank you for removing, " + nameOfBook + ".");
+                break;
+            }
+        }
+        if (numberOfBook == booksCurrentlyAvailableInLibrary.length) {
+            System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+        }
+    }
 }

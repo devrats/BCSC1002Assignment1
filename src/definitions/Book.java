@@ -191,6 +191,9 @@ public class Book {
         setAuthorOfBook(authorOfBook);
     }
 
+    /**
+     * Set all fields to default values.
+     */
     public void removeBookFromLibrary() {
         this.nameOfBook = "NOT AVAILABLE";
         this.authorOfBook = "NOT AVAILABLE";
