@@ -179,4 +179,15 @@ public class Book {
     public int hashCode() {
         return Objects.hash(getNameOfBook(), getAuthorOfBook(), getBookISBNCode(), isBookAvailable(), isDefaultBookAvailability());
     }
+
+    /**
+     * Set name of the book and name of the author of the book.
+     *
+     * @param nameOfBook   Name of the Book.
+     * @param authorOfBook Name of the author of the respective book.
+     */
+    public void addBooktoLibrary(String nameOfBook, String authorOfBook) {
+        setNameOfBook(nameOfBook);
+        setAuthorOfBook(authorOfBook);
+    }
 }
