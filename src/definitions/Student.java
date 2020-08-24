@@ -198,13 +198,17 @@ public class Student {
      * @param object       Object of library.
      */
     public void doIssue(String nameOfBook, String authorOfBook, Library object) {
-        if (numberOfBooksIssuedByStudent < MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED) {
-            object.doIssue(nameOfBook, authorOfBook);
-            allBooksIssuedByStudent[numberOfBooksIssuedByStudent] = new Book(nameOfBook, authorOfBook);
-        } else {
-            System.out.println("you have already has 2 book issued so you can't issue more.");
+        for (Book book : allBooksIssuedByStudent) {
+            if (numberOfBooksIssuedByStudent < MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED) {
+                if (book.getNameOfBook().equals("NOT AVAILABLE")) {
+                    object.doIssue(nameOfBook, authorOfBook);
+                    book = new Book(nameOfBook, authorOfBook);
+                }
+            } else {
+                System.out.println("you have already has 2 book issued so you can't issue more.");
+            }
+            numberOfBooksIssuedByStudent++;
         }
-        numberOfBooksIssuedByStudent++;
     }
 
     /**
@@ -221,7 +225,8 @@ public class Student {
             if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook) && !book.isBookAvailable()) {
                 book.doReturn();
                 object.doReturn(nameOfBook, authorOfBook);
-                book = new Book();
+                book.removeBookFromLibrary();
+                numberOfBooksIssuedByStudent--;
                 System.out.println("Thank you for Returning, " + nameOfBook + ".");
                 break;
             }

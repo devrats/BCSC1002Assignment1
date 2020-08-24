@@ -184,7 +184,7 @@ public class Book {
      * @param nameOfBook   Name of the Book.
      * @param authorOfBook Name of the author of the respective book.
      */
-    public void addBooktoLibrary(String nameOfBook, String authorOfBook) {
+    public void addBookToLibrary(String nameOfBook, String authorOfBook) {
         setNameOfBook(nameOfBook);
         setAuthorOfBook(authorOfBook);
     }

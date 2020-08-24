@@ -108,9 +108,13 @@ public class Library {
      * @param authorOfBook Name of the author of the respective book.
      */
     public void addBookToLibrary(String nameOfBook, String authorOfBook) {
-        booksCurrentlyAvailableInLibrary[numberOfBookPresentInLibrary].addBooktoLibrary(nameOfBook, authorOfBook);
-        numberOfBookPresentInLibrary++;
-        System.out.println("Thank you for adding, " + nameOfBook + ".");
+        for (Book book : booksCurrentlyAvailableInLibrary) {
+            if (book.getNameOfBook().equals("NOT AVAILABLE")) {
+                book.addBookToLibrary(nameOfBook, authorOfBook);
+                numberOfBookPresentInLibrary++;
+                System.out.println("Thank you for adding, " + nameOfBook + ".");
+            }
+        }
     }
 
     /**
