@@ -190,4 +190,11 @@ public class Book {
         setNameOfBook(nameOfBook);
         setAuthorOfBook(authorOfBook);
     }
+
+    public void removeBookFromLibrary() {
+        this.nameOfBook = "NOT AVAILABLE";
+        this.authorOfBook = "NOT AVAILABLE";
+        this.bookISBNCode = "NOT AVAILABLE";
+        this.isBookAvailable = defaultBookAvailiblity;
+    }
 }
