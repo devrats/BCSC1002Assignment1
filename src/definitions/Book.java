@@ -9,7 +9,7 @@ package definitions;
 import java.util.Objects;
 
 public class Book {
-    private final boolean defaultBookAvailiblity = false;
+    private final boolean defaultBookAvailability = true;
 
     private String nameOfBook;
     private String authorOfBook;
@@ -49,7 +49,7 @@ public class Book {
         this.nameOfBook = "NOT AVAILABLE";
         this.authorOfBook = "NOT AVAILABLE";
         this.bookISBNCode = "NOT AVAILABLE";
-        this.isBookAvailable = defaultBookAvailiblity;
+        this.isBookAvailable = defaultBookAvailability;
     }
 
     /**
@@ -134,7 +134,7 @@ public class Book {
      * @return Default availability of book in the library.
      */
     public boolean isDefaultBookAvailability() {
-        return defaultBookAvailiblity;
+        return defaultBookAvailability;
     }
 
     /**
@@ -198,6 +198,24 @@ public class Book {
         this.nameOfBook = "NOT AVAILABLE";
         this.authorOfBook = "NOT AVAILABLE";
         this.bookISBNCode = "NOT AVAILABLE";
-        this.isBookAvailable = defaultBookAvailiblity;
+        this.isBookAvailable = defaultBookAvailability;
+    }
+
+    /**
+     * Issue the Book.
+     */
+    public void doIssue() {
+        if (isBookAvailable) {
+            setBookAvailable(false);
+        }
+    }
+
+    /**
+     * Return the Book.
+     */
+    public void doReturn() {
+        if (!isBookAvailable) {
+            setBookAvailable(true);
+        }
     }
 }
