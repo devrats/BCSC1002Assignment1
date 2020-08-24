@@ -195,6 +195,7 @@ public class Student {
      *
      * @param nameOfBook   Name of the Book.
      * @param authorOfBook Name of the author of the respective book.
+     * @param object       Object of library.
      */
     public void doIssue(String nameOfBook, String authorOfBook, Library object) {
         if (numberOfBooksIssuedByStudent < MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED) {
@@ -202,5 +203,28 @@ public class Student {
             allBooksIssuedByStudent[numberOfBooksIssuedByStudent] = new Book(nameOfBook, authorOfBook);
         }
         numberOfBooksIssuedByStudent++;
+    }
+
+    /**
+     * Return a book from the library.
+     *
+     * @param nameOfBook   Name of the Book.
+     * @param authorOfBook Name of the author of the respective book.
+     * @param object       Object of library.
+     */
+    public void doReturn(String nameOfBook, String authorOfBook, Library object) {
+        int numberOfBook = 0;
+        for (Book book : allBooksIssuedByStudent) {
+            numberOfBook++;
+            if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook) && book.isBookAvailable()) {
+                book.doReturn();
+                object.doReturn(nameOfBook, authorOfBook);
+                System.out.println("Thank you for Returning, " + nameOfBook + ".");
+                break;
+            }
+        }
+        if (numberOfBook == allBooksIssuedByStudent.length) {
+            System.out.println("SORRY NO SUCH BOOK AVAILABLE");
+        }
     }
 }

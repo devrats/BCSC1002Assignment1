@@ -174,7 +174,6 @@ public class Library {
         for (Book book : booksCurrentlyAvailableInLibrary) {
             if (book.getNameOfBook().equalsIgnoreCase(nameOfBook) && book.getAuthorOfBook().equalsIgnoreCase(authorOfBook) && !book.isBookAvailable()) {
                 book.doReturn();
-                System.out.println("Thank you for issuing, " + nameOfBook + ".");
                 break;
             }
         }
