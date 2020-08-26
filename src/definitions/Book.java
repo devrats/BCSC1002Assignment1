@@ -9,6 +9,7 @@ package definitions;
 import java.util.Objects;
 
 public class Book {
+
     private final boolean defaultBookAvailability = true;
 
     private String nameOfBook;

@@ -81,7 +81,7 @@ public class FrontDesk {
                 Student student = new Student();
                 System.out.println("Please enter your name: ");
                 input.nextLine();
-                student.setNameOfStudent(input.nextLine());
+                student.setFirstNameOfStudent(input.nextLine());
                 System.out.println("Please enter your university roll no: ");
                 student.setRollNumberOfStudent(input.nextLong());
                 do {

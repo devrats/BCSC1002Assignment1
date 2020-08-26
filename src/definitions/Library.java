@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Library {
+
     private final int CAPACITY_OF_LIBRARY = 100;
 
     private Book[] booksCurrentlyAvailableInLibrary;

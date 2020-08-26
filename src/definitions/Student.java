@@ -10,23 +10,28 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Student {
+
     private final int MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED = 2;
 
     private static int initialNumberOfBookIssued = 0;
-    private String nameOfStudent;
+    private String firstNameOfStudent;
+    private String middleNameOfStudent;
+    private String lastNameOfStudent;
     private long rollNumberOfStudent;
     private int numberOfBooksIssuedByStudent;
     private Book[] allBooksIssuedByStudent;
 
-    public Student(String nameOfStudent, long rollNumberOfStudent, int numberOfBooksIssuedByStudent, Book[] allBooksIssuedByStudent) {
-        this.nameOfStudent = nameOfStudent;
+    public Student(String firstNameOfStudent, String middleNameOfStudent, String lastNameOfStudent, long rollNumberOfStudent, int numberOfBooksIssuedByStudent, Book[] allBooksIssuedByStudent) {
+        this.firstNameOfStudent = firstNameOfStudent;
+        this.middleNameOfStudent = middleNameOfStudent;
+        this.lastNameOfStudent = lastNameOfStudent;
         this.rollNumberOfStudent = rollNumberOfStudent;
         this.numberOfBooksIssuedByStudent = numberOfBooksIssuedByStudent;
         this.allBooksIssuedByStudent = allBooksIssuedByStudent;
     }
 
     public Student() {
-        this.nameOfStudent = "NOT AVAILABLE";
+        this.firstNameOfStudent = "NOT AVAILABLE";
         allBooksIssuedByStudent = new Book[MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED];
         for (int index = 0; index < allBooksIssuedByStudent.length; index++) {
             allBooksIssuedByStudent[index] = new Book();
@@ -34,8 +39,8 @@ public class Student {
         numberOfBooksIssuedByStudent = 0;
     }
 
-    public Student(String nameOfStudent) {
-        this.nameOfStudent = nameOfStudent;
+    public Student(String firstNameOfStudent) {
+        this.firstNameOfStudent = firstNameOfStudent;
         allBooksIssuedByStudent = new Book[MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED];
         for (int index = 0; index < allBooksIssuedByStudent.length; index++) {
             allBooksIssuedByStudent[index] = new Book();
@@ -58,7 +63,6 @@ public class Student {
         this.numberOfBooksIssuedByStudent = numberOfBooksIssuedByStudent;
     }
 
-
     public long getRollNumberOfStudent() {
         return rollNumberOfStudent;
     }
@@ -67,29 +71,42 @@ public class Student {
         this.rollNumberOfStudent = rollNumberOfStudent;
     }
 
-
-    public String getNameOfStudent() {
-        return nameOfStudent;
+    public String getFirstNameOfStudent() {
+        return firstNameOfStudent;
     }
 
-
-    public void setNameOfStudent(String nameOfStudent) {
-        this.nameOfStudent = nameOfStudent;
+    public void setFirstNameOfStudent(String firstNameOfStudent) {
+        this.firstNameOfStudent = firstNameOfStudent;
     }
 
     public int getMaximumNumberOfBooksCanBeIssued() {
         return MAXIMUM_NUMBER_OF_BOOKS_CAN_BE_ISSUED;
     }
 
-
     public static int getInitialNumberOfBookIssued() {
         return initialNumberOfBookIssued;
+    }
+
+    public String getMiddleNameOfStudent() {
+        return middleNameOfStudent;
+    }
+
+    public void setMiddleNameOfStudent(String middleNameOfStudent) {
+        this.middleNameOfStudent = middleNameOfStudent;
+    }
+
+    public String getLastNameOfStudent() {
+        return lastNameOfStudent;
+    }
+
+    public void setLastNameOfStudent(String lastNameOfStudent) {
+        this.lastNameOfStudent = lastNameOfStudent;
     }
 
     public String toString() {
         return String.format(
                 "Student Name: %s, Student Roll no: %d, Total number of issued books: %d, Details of all books: %s",
-                getNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), Arrays.toString(allBooksIssuedByStudent)
+                getFirstNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), Arrays.toString(allBooksIssuedByStudent)
         );
     }
 
@@ -104,13 +121,13 @@ public class Student {
         Student student = (Student) object;
         return this.getRollNumberOfStudent() == student.getRollNumberOfStudent() &&
                 this.getNumberOfBooksIssuedByStudent() == student.getNumberOfBooksIssuedByStudent() &&
-                Objects.equals(this.getNameOfStudent(), student.getNameOfStudent()) &&
+                Objects.equals(this.getFirstNameOfStudent(), student.getFirstNameOfStudent()) &&
                 Arrays.equals(this.getAllBooksIssuedByStudent(), student.getAllBooksIssuedByStudent());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), getAllBooksIssuedByStudent(), getMaximumNumberOfBooksCanBeIssued());
+        return Objects.hash(getFirstNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), getAllBooksIssuedByStudent(), getMaximumNumberOfBooksCanBeIssued());
     }
 
     /**
