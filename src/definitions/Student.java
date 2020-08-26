@@ -43,7 +43,7 @@ public class Student {
     }
 
     public Book[] getAllBooksIssuedByStudent() {
-        return allBooksIssuedByStudent;
+        return allBooksIssuedByStudent.clone();
     }
 
     public void setAllBooksIssuedByStudent(Book[] allBooksIssuedByStudent) {
