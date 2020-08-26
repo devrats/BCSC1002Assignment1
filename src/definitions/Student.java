@@ -31,6 +31,7 @@ public class Student {
         for (int index = 0; index < allBooksIssuedByStudent.length; index++) {
             allBooksIssuedByStudent[index] = new Book();
         }
+        numberOfBooksIssuedByStudent = 0;
     }
 
     public Student(String nameOfStudent) {
