@@ -82,7 +82,7 @@ public class Library {
     }
 
     /**
-     * Remove a book from the library.
+     * This method remove a book from the library.
      *
      * @param nameOfBook   Name of the Book.
      * @param authorOfBook Name of the author of the respective book.
@@ -113,7 +113,7 @@ public class Library {
     }
 
     /**
-     * Issue a book from the library.
+     * This method issue a book from the library.
      *
      * @param nameOfBook   Name of the Book.
      * @param authorOfBook Name of the author of the respective book.
@@ -135,7 +135,7 @@ public class Library {
     }
 
     /**
-     * Return a book from the library.
+     * This method return a book from the library.
      *
      * @param nameOfBook   Name of the Book.
      * @param authorOfBook Name of the author of the respective book.
@@ -150,7 +150,7 @@ public class Library {
     }
 
     /**
-     * Set ISBN code of the book.
+     * This method set ISBN code of the book.
      *
      * @param nameOfBook   Name of the book.
      * @param authorOfBook Author of the respective book.

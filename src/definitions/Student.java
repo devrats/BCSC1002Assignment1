@@ -105,8 +105,8 @@ public class Student {
 
     public String toString() {
         return String.format(
-                "Student Name: %s, Student Roll no: %d, Total number of issued books: %d, Details of all books: %s",
-                getFirstNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), Arrays.toString(allBooksIssuedByStudent)
+                "Student First Name: %s, Student First Name: %s, Student First Name: %s, Student Roll no: %d, Total number of issued books: %d, Details of all books: %s",
+                getFirstNameOfStudent(), getMiddleNameOfStudent(), getLastNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), Arrays.toString(allBooksIssuedByStudent)
         );
     }
 
@@ -122,16 +122,18 @@ public class Student {
         return this.getRollNumberOfStudent() == student.getRollNumberOfStudent() &&
                 this.getNumberOfBooksIssuedByStudent() == student.getNumberOfBooksIssuedByStudent() &&
                 Objects.equals(this.getFirstNameOfStudent(), student.getFirstNameOfStudent()) &&
+                Objects.equals(this.getLastNameOfStudent(), student.getLastNameOfStudent()) &&
+                Objects.equals(this.getMiddleNameOfStudent(), student.getMiddleNameOfStudent()) &&
                 Arrays.equals(this.getAllBooksIssuedByStudent(), student.getAllBooksIssuedByStudent());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getFirstNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), getAllBooksIssuedByStudent(), getMaximumNumberOfBooksCanBeIssued());
+        return Objects.hash(getFirstNameOfStudent(), getMiddleNameOfStudent(), getLastNameOfStudent(), getRollNumberOfStudent(), getNumberOfBooksIssuedByStudent(), getAllBooksIssuedByStudent(), getMaximumNumberOfBooksCanBeIssued());
     }
 
     /**
-     * Issue a book from the library.
+     * This method issue a book from the library.
      *
      * @param nameOfBook   Name of the Book.
      * @param authorOfBook Name of the author of the respective book.
@@ -155,7 +157,7 @@ public class Student {
     }
 
     /**
-     * Return a book from the library.
+     * This method return a book from the library.
      *
      * @param nameOfBook   Name of the Book.
      * @param authorOfBook Name of the author of the respective book.

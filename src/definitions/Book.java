@@ -105,7 +105,7 @@ public class Book {
     }
 
     /**
-     * Set name of the book and name of the author of the book.
+     * This method set name of the book and name of the author of the book.
      *
      * @param nameOfBook   Name of the Book.
      * @param authorOfBook Name of the author of the respective book.
@@ -116,7 +116,7 @@ public class Book {
     }
 
     /**
-     * Set all fields to default values.
+     * This method set all fields to default values.
      */
     public void removeBookFromLibrary() {
         this.nameOfBook = "NOT AVAILABLE";
@@ -126,7 +126,7 @@ public class Book {
     }
 
     /**
-     * Issue the Book.
+     * This method issue the Book.
      */
     public void doIssue() {
         if (isBookAvailable) {
@@ -135,7 +135,7 @@ public class Book {
     }
 
     /**
-     * Return the Book.
+     * This method return the Book.
      */
     public void doReturn() {
         if (!isBookAvailable) {
